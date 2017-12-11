@@ -27,7 +27,10 @@ class StatusBarView:
             self.window.addstr(0, 0, statusbarstr[:width_1_2])
             if len(statusbarstr) < width_1_2:
                 self.window.addstr(0, len(statusbarstr), " " * (width - width_1_2 - 1))
-            self.window.addstr(0, width_1_2, label_tabs[:width_1_2])
+            if len(label_tabs) > width_1_2:
+                self.window.addstr(0, width_1_2, label_tabs[:width_1_2])
+            else:
+                self.window.addstr(0, width_1_2, label_tabs[:width_1_2])
             if len(label_tabs) < width_1_2:
                 self.window.addstr(0, width_1_2 + len(label_tabs), " " * (width_1_2 - len(label_tabs) - 1))
 
