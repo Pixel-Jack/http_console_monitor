@@ -1,4 +1,5 @@
 import curses
+from controller.write_log_application import write
 
 
 class StatusBarView:
@@ -27,13 +28,13 @@ class StatusBarView:
             self.window.addstr(0, 0, statusbarstr[:width_1_2])
             if len(statusbarstr) < width_1_2:
                 self.window.addstr(0, len(statusbarstr), " " * (width - width_1_2 - 1))
-            if len(label_tabs) > width_1_2:
+            try:
                 self.window.addstr(0, width_1_2, label_tabs[:width_1_2])
-            else:
-                self.window.addstr(0, width_1_2, label_tabs[:width_1_2])
-            if len(label_tabs) < width_1_2:
-                self.window.addstr(0, width_1_2 + len(label_tabs), " " * (width_1_2 - len(label_tabs) - 1))
 
+                if len(label_tabs) < width_1_2:
+                    self.window.addstr(0, width_1_2 + len(label_tabs), " " * (width_1_2 - len(label_tabs) - 1))
+            except:
+                write("Error in StatusBarView")
             if not is_alert:
                 self.window.attroff(curses.color_pair(4))
             else:
