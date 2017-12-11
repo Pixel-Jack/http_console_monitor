@@ -57,10 +57,16 @@ class AlertView:
                     else:
                         self.window.attron(curses.color_pair(3))
 
-                    self.window.addstr(nb_row_written, 1, str(hist[1])[:width_write_space])
-                    nb_row_written += 1
-                    if nb_row_written > height_write_space:
-                        break
+                    message = str(hist[1])
+                    chunks = len(message[1])
+                    # if a string overthrows the width we must put a carriage return
+                    list_row_to_write = [message[i:i + width_write_space] for i in
+                                         range(0, chunks, width_write_space)]
+                    for row in list_row_to_write:
+                        self.window.addstr(nb_row_written, 1, row)
+                        nb_row_written += 1
+                        if nb_row_written > height_write_space:
+                            break
 
                     if hist[0]:
                         self.window.attroff(curses.color_pair(2))

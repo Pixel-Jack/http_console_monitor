@@ -85,7 +85,6 @@ class HistoricHTTPWatcher(Thread):
             average_2_min = self.historic_http_model.get_average_in_last_two_min()
             if not self.is_alert:
                 if  average_2_min >= self.average:
-                    curses.beep()
                     self.is_alert = True
                     self.alert_http_model.add_to_historic([True,
                                                            "High traffic generated an alert - hits = {}, triggered at {}".format(

@@ -37,7 +37,6 @@ class StatisticsView:
             self.window.attroff(curses.A_BOLD)
             #######################
             for key,info in self.dict_infos.items():
-                curses.beep()
                 if nb_row_written > height_space_write:
                     break
                 text = "{} : {}".format(key, info)
