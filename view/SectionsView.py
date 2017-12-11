@@ -20,7 +20,7 @@ class SectionsView:
         width_space_write = width - 2
         title = "Information logged by section (order by number of hits)"
 
-        if height_space_write > 0 and width_space_write > 0:
+        if height_space_write > 0 and width_space_write > 7:
             ### Titre curses example
             # Turning on attributes for title
             self.window.attron(curses.color_pair(1))
