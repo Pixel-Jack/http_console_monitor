@@ -17,7 +17,7 @@ class StatusBarView:
         height, width = self.window.getmaxyx()
         width_1_2 = int(width / 2)
 
-        if height > 0 and width - len(statusbarstr) - len(label_tabs) - 1 > 0:
+        if height > 0 and width - len(statusbarstr) - len(label_tabs) - 1 > 0 and width_1_2 > 2:
             ### Status bar du bas
             if not is_alert:
                 self.window.attron(curses.color_pair(4))

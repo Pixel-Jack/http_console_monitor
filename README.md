@@ -26,9 +26,9 @@ python3 http_monitor.py`
 The create_log file will create logs with random attacks.
 
 # Improvements :
-- allow moving in the sections information window
+- allow move with the cursor and scroll in the sections information window
+- provide a way to sort the sections information, users information, ip information window
 - allow to go up in the Http historic window and that could rewind the graphic in the bottom left
+- allow to change refresh freqency inside the monitor
 - there a difference between the refreshing of the statistics window and the graphic window. (Even with delay_refresh_general equals delay_refresh_statistics)
 - save all info in a log file
-- Handle all the raised errors
-- Correct some curses issues
