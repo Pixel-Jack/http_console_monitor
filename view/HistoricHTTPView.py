@@ -40,7 +40,7 @@ class HistoricHTTPView:
             ### The rest
             # Print rest of text
             if len(self.historic) > 0:
-                nb_line_written = 0
+                nb_line_written = 1
                 # We fill the View from the bottom
                 reversed_historic = list(self.historic)
                 reversed_historic.reverse()
