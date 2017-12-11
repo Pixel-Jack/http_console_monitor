@@ -99,6 +99,8 @@ class HTTPLogWatcher(Thread):
         list_analysed_trame = []
         for line in data:
             analysed_trame = self.analyse_trame(line)
+            if len(analysed_trame) == 0:
+                pass
             list_analysed_trame.append(analysed_trame)
             path = analysed_trame[5]
             section = self.get_section_from_path(path)
@@ -120,6 +122,8 @@ class HTTPLogWatcher(Thread):
         in_last_delay = []
         for d in data:
             analysed_trame = self.analyse_trame(d)
+            if len(analysed_trame) == 0:
+                pass
             in_last_delay.append(analysed_trame)
             list_analysed_trame.append(analysed_trame)
             ip_user = analysed_trame[0]
